@@ -10,19 +10,15 @@ import {
 
 import { GraphQLExtension, GraphQLResponse } from 'graphql-extensions';
 
+import {
+  CacheHint,
+  CacheScope,
+} from 'apollo-server-core/dist/requestPipelineAPI';
+export { CacheHint, CacheScope };
+
 export interface CacheControlFormat {
   version: 1;
   hints: ({ path: (string | number)[] } & CacheHint)[];
-}
-
-export interface CacheHint {
-  maxAge?: number;
-  scope?: CacheScope;
-}
-
-export enum CacheScope {
-  Public = 'PUBLIC',
-  Private = 'PRIVATE',
 }
 
 export interface CacheControlExtensionOptions {
